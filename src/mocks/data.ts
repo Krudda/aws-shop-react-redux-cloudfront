@@ -459,21 +459,21 @@ export const availableProducts: Movie[] = products.map((product, index) => ({
 export const cart: CartItem[] = [
   {
     product: {
-      description: "Short Product Description1",
-      id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-      price: 24,
-      title: "ProductOne",
+      Plot: "Short Product Description1",
+      imdbID: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
+      Price: 24,
+      Title: "ProductOne",
     },
-    count: 2,
+    // count: 2,
   },
   {
     product: {
-      description: "Short Product Description7",
-      id: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-      price: 15,
-      title: "ProductName",
+      Plot: "Short Product Description7",
+      imdbID: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
+      Price: 15,
+      Title: "ProductName",
     },
-    count: 5,
+    // count: 5,
   },
 ];
 

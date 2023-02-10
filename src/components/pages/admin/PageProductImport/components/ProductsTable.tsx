@@ -33,21 +33,21 @@ export default function ProductsTable() {
         </TableHead>
         <TableBody>
           {data.map((product) => (
-            <TableRow key={product.id}>
+            <TableRow key={product.imdbID}>
               <TableCell component="th" scope="row">
-                {product.title}
+                {product.Title}
               </TableCell>
-              <TableCell align="right">{product.description}</TableCell>
+              <TableCell align="right">{product.Plot}</TableCell>
               <TableCell align="right">
-                {formatAsPrice(product.price)}
+                {formatAsPrice(product.Price)}
               </TableCell>
-              <TableCell align="right">{product.count}</TableCell>
+              <TableCell align="right">{product.imdbRating}</TableCell>
               <TableCell align="right">
                 <Button
                   size="small"
                   color="primary"
                   component={Link}
-                  to={`/admin/product-form/${product.id}`}
+                  to={`/admin/product-form/${product.imdbID}`}
                 >
                   Manage
                 </Button>
@@ -55,8 +55,8 @@ export default function ProductsTable() {
                   size="small"
                   color="secondary"
                   onClick={() => {
-                    if (product.id) {
-                      deleteAvailableProduct(product.id, {
+                    if (product.imdbID) {
+                      deleteAvailableProduct(product.imdbID, {
                         onSuccess: invalidateAvailableProducts,
                       });
                     }

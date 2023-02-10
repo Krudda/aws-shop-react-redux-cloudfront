@@ -6,7 +6,8 @@ import React from "react";
 
 export function useAvailableProducts() {
   return useQuery<Movie[], AxiosError>("available-products", async () => {
-    const res = await axios.get<Movie[]>(`${API_PATHS.bff}/product/available`);
+    // const res = await axios.get<Movie[]>(`${API_PATHS.bff}/product/available`);
+    const res = await axios.get<Movie[]>(`${API_PATHS.aws}/movies`);
     return res.data;
   });
 }
