@@ -27,7 +27,7 @@ export default function ProductsTable() {
             <TableCell>Title</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Count</TableCell>
+            <TableCell align="right">Rating</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
         </TableHead>

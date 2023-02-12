@@ -1,13 +1,14 @@
 import { rest } from "msw";
 import API_PATHS from "~/constants/apiPaths";
-import { availableProducts, orders, products, cart } from "~/mocks/data";
+// import { availableProducts, orders, products, cart } from "~/mocks/data";
+import { orders, cart } from "~/mocks/data";
 import { CartItem } from "~/models/CartItem";
 import { Order } from "~/models/Order";
 import { Movie } from "~/models/Product";
 
 export const handlers = [
   rest.get(`${API_PATHS.bff}/product`, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.delay(), ctx.json<Movie[]>(products));
+    // return res(ctx.status(200), ctx.delay(), ctx.json<Movie[]>(products));
   }),
   rest.put(`${API_PATHS.bff}/product`, (req, res, ctx) => {
     return res(ctx.status(200));
@@ -18,16 +19,16 @@ export const handlers = [
   rest.get(`${API_PATHS.bff}/product/available`, (req, res, ctx) => {
     return res(
       ctx.status(200),
-      ctx.delay(),
-      ctx.json<Movie[]>(availableProducts)
+      ctx.delay()
+      // ctx.json<Movie[]>(availableProducts)
     );
   }),
   rest.get(`${API_PATHS.bff}/product/:id`, (req, res, ctx) => {
-    const product = availableProducts.find((p) => p.imdbID === req.params.id);
-    if (!product) {
-      return res(ctx.status(404));
-    }
-    return res(ctx.status(200), ctx.delay(), ctx.json<Movie>(product));
+    // const product = availableProducts.find((p) => p.imdbID === req.params.id);
+    // if (!product) {
+    //   return res(ctx.status(404));
+    // }
+    // return res(ctx.status(200), ctx.delay(), ctx.json<Movie>(product));
   }),
   rest.get(`${API_PATHS.cart}/profile/cart`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.delay(), ctx.json<CartItem[]>(cart));
