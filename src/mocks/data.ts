@@ -459,19 +459,19 @@ import { AvailableProduct, Product, Movie } from "~/models/Product";
 export const cart: CartItem[] = [
   {
     product: {
-      Plot: "Short Product Description1",
+      plot: "Short Product Description1",
       imdbID: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-      Price: 24,
-      Title: "ProductOne",
+      price: 24,
+      title: "ProductOne",
     },
     // count: 2,
   },
   {
     product: {
-      Plot: "Short Product Description7",
+      plot: "Short Product Description7",
       imdbID: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-      Price: 15,
-      Title: "ProductName",
+      price: 15,
+      title: "ProductName",
     },
     // count: 5,
   },
