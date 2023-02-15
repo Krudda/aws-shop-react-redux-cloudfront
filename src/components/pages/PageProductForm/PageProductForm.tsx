@@ -26,9 +26,9 @@ export default function PageProductForm() {
     const formattedValues = AvailableProductSchema.cast(values);
     const productToSave = id
       ? {
-          ...formattedValues,
-          id,
-        }
+        ...formattedValues,
+        id,
+      }
       : formattedValues;
     return upsertAvailableProduct(productToSave, {
       onSuccess: () => {

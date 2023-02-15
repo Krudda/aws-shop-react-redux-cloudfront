@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -13,7 +14,8 @@ type CartItemsProps = {
 
 export default function CartItems({ items, isEditable }: CartItemsProps) {
   const totalPrice: number = items.reduce(
-    (total, item) => item.count * item.product.price + total,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    (total, item) => (item.count ?? 1) * item.product.Price! + total,
     0
   );
 
@@ -23,16 +25,17 @@ export default function CartItems({ items, isEditable }: CartItemsProps) {
         {items.map((cartItem: CartItem) => (
           <ListItem
             sx={{ padding: (theme) => theme.spacing(1, 0) }}
-            key={cartItem.product.id}
+            key={cartItem.product.imdbID}
           >
             {isEditable && <AddProductToCart product={cartItem.product} />}
             <ListItemText
-              primary={cartItem.product.title}
-              secondary={cartItem.product.description}
+              primary={cartItem.product.Title}
+              secondary={cartItem.product.Plot}
             />
             <Typography variant="body2">
-              {formatAsPrice(cartItem.product.price)} x {cartItem.count} ={" "}
-              {formatAsPrice(cartItem.product.price * cartItem.count)}
+              {formatAsPrice(cartItem.product.Price!)} x {cartItem.count} ={" "}
+              {/* {formatAsPrice(cartItem.product.Price! * cartItem.count)} */}
+              {formatAsPrice(cartItem.product.Price!)}
             </Typography>
           </ListItem>
         ))}

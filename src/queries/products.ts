@@ -1,19 +1,15 @@
 import axios, { AxiosError } from "axios";
 import API_PATHS from "~/constants/apiPaths";
-import { AvailableProduct } from "~/models/Product";
+import { AvailableProduct, Movie } from "~/models/Product";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import React from "react";
 
 export function useAvailableProducts() {
-  return useQuery<AvailableProduct[], AxiosError>(
-    "available-products",
-    async () => {
-      const res = await axios.get<AvailableProduct[]>(
-        `${API_PATHS.bff}/product/available`
-      );
-      return res.data;
-    }
-  );
+  return useQuery<Movie[], AxiosError>("available-products", async () => {
+    // const res = await axios.get<Movie[]>(`${API_PATHS.bff}/product/available`);
+    const res = await axios.get(`${API_PATHS.aws}/movies`);
+    return res.data.body;
+  });
 }
 
 export function useInvalidateAvailableProducts() {

@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography";
-import { Product } from "~/models/Product";
+import { Movie } from "~/models/Product";
 import CartIcon from "@mui/icons-material/ShoppingCart";
 import Add from "@mui/icons-material/Add";
 import Remove from "@mui/icons-material/Remove";
@@ -7,18 +7,19 @@ import IconButton from "@mui/material/IconButton";
 import { useCart, useInvalidateCart, useUpsertCart } from "~/queries/cart";
 
 type AddProductToCartProps = {
-  product: Product;
+  product: Partial<Movie>;
 };
 
 export default function AddProductToCart({ product }: AddProductToCartProps) {
   const { data = [], isFetching } = useCart();
   const { mutate: upsertCart } = useUpsertCart();
   const invalidateCart = useInvalidateCart();
-  const cartItem = data.find((i) => i.product.id === product.id);
+  const cartItem = data.find((i) => i.product.imdbID === product.imdbID);
 
   const addProduct = () => {
     upsertCart(
-      { product, count: cartItem ? cartItem.count + 1 : 1 },
+      // { product, count: cartItem ? cartItem.count + 1 : 1 },
+      { product, count: 1 },
       { onSuccess: invalidateCart }
     );
   };
@@ -26,7 +27,8 @@ export default function AddProductToCart({ product }: AddProductToCartProps) {
   const removeProduct = () => {
     if (cartItem) {
       upsertCart(
-        { ...cartItem, count: cartItem.count - 1 },
+        // { ...cartItem, count: cartItem.count - 1 },
+        { ...cartItem, count: 0 },
         { onSuccess: invalidateCart }
       );
     }

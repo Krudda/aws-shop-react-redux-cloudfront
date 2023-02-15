@@ -1,6 +1,6 @@
-import { Product } from "~/models/Product";
+import { Movie } from "~/models/Product";
 
 export type CartItem = {
-  product: Product;
-  count: number;
+  product: Partial<Movie>;
+  count?: number;
 };
