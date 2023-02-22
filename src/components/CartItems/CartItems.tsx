@@ -15,7 +15,7 @@ type CartItemsProps = {
 export default function CartItems({ items, isEditable }: CartItemsProps) {
   const totalPrice: number = items.reduce(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    (total, item) => (item.count ?? 1) * item.product.Price! + total,
+    (total, item) => (item.count ?? 1) * item.product.price! + total,
     0
   );
 
@@ -29,13 +29,13 @@ export default function CartItems({ items, isEditable }: CartItemsProps) {
           >
             {isEditable && <AddProductToCart product={cartItem.product} />}
             <ListItemText
-              primary={cartItem.product.Title}
-              secondary={cartItem.product.Plot}
+              primary={cartItem.product.title}
+              secondary={cartItem.product.plot}
             />
             <Typography variant="body2">
-              {formatAsPrice(cartItem.product.Price!)} x {cartItem.count} ={" "}
+              {formatAsPrice(cartItem.product.price!)} x {cartItem.count} ={" "}
               {/* {formatAsPrice(cartItem.product.Price! * cartItem.count)} */}
-              {formatAsPrice(cartItem.product.Price!)}
+              {formatAsPrice(cartItem.product.price!)}
             </Typography>
           </ListItem>
         ))}

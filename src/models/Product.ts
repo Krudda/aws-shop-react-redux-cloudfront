@@ -8,39 +8,19 @@ export const ProductSchema = Yup.object({
 });
 
 export interface Movie {
-  Title: string;
-  Price: number;
-  Year: string;
-  Rated: string;
-  Released: string;
-  Runtime: string;
-  Genre: string;
-  Director: string;
-  Writer: string;
-  Actors: string;
-  Plot: string;
-  Language: string;
-  Country: string;
-  Awards: string;
-  Poster: string;
-  Ratings: Rating[];
-  Metascore: string;
+  id: string;
+  title: string;
+  price: number;
+  year: string;
+  genre: string;
+  director: string;
+  actors: string;
+  plot: string;
+  country: string;
+  poster: string;
   imdbRating: string;
-  imdbVotes: string;
   imdbID: string;
-  Type: string;
-  DVD?: string;
-  BoxOffice?: string;
-  Production?: string;
-  Website?: string;
-  totalSeasons?: string;
-  Response: string;
 }
-
-type Rating = {
-  Source: string;
-  Value: string;
-};
 
 export const AvailableProductSchema = ProductSchema.shape({
   count: Yup.number().integer().min(0).required().defined().default(0),

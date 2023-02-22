@@ -7,10 +7,10 @@ import Box from "@mui/material/Box";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="#6b6b6b" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/" underline="hover">
-        My NEW Store
+        MOVIE STORE
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -20,28 +20,50 @@ function Copyright() {
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <>
-      <Header />
-      <main>
-        <Container sx={{ pb: 8 }} maxWidth="md">
-          {children}
-        </Container>
-      </main>
-      <Box
-        component={"footer"}
-        sx={{ bgcolor: (theme) => theme.palette.background.paper, padding: 6 }}
+    <div
+      style={{
+        backgroundColor: "#2d2d2f",
+        fontFamily: "Oswald, Arial, Helvetica, sans-serif",
+        minHeight: "100vh",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1540px",
+          width: "90%",
+          margin: "0 auto",
+          boxShadow: "0px 0px 53px -15px rgb(255 228 144 / 70%)",
+          background:
+            "radial-gradient(ellipse at center, rgb(63, 63, 66) 0%, rgba(45,45,47,1) 100%)",
+          minHeight: "100vh",
+        }}
       >
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
+        <Header />
+        <main style={{ minHeight: "calc(100vh - 180px)" }}>
+          <Container sx={{ pb: 8 }} maxWidth="md">
+            {children}
+          </Container>
+        </main>
+        <Box
+          component={"footer"}
+          sx={{
+            bgcolor: "rgb(45 45 47)",
+            padding: 2,
+            color: "#6b6b6b",
+          }}
         >
-          Thank you for your purchase!
-        </Typography>
-        <Copyright />
-      </Box>
-    </>
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="#6b6b6b"
+            component="p"
+          >
+            Thank you for your purchase!
+          </Typography>
+          <Copyright />
+        </Box>
+      </div>
+    </div>
   );
 };
 

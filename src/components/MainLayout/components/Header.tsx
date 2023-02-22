@@ -25,15 +25,30 @@ export default function Header() {
 
   return (
     <AppBar position="relative">
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+      <Toolbar
+        sx={{
+          bgcolor: "#2d2d2f",
+          boxShadow: "none",
+          height: 100,
+        }}
+      >
+        <Typography
+          variant="h1"
+          sx={{
+            flexGrow: 1,
+            color: "#ffe490",
+            fontFamily: "SixCaps, Arial, Helvetica, sansSerif",
+            fontSize: 60,
+            cursor: "pointer",
+          }}
+        >
           <Link
             component={RouterLink}
             sx={{ color: "inherit" }}
             underline="none"
             to="/"
           >
-            My New Store!
+            MOVIE STORE
           </Link>
         </Typography>
 
@@ -47,7 +62,7 @@ export default function Header() {
               color="inherit"
               size="large"
             >
-              <AccountCircle />
+              <AccountCircle sx={{ color: "#ffe490" }} />
             </IconButton>
             <Menu
               id="menu-appbar"
