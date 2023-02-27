@@ -11,10 +11,6 @@ type CSVFileImportProps = {
 export default function CSVFileImport({ url, title }: CSVFileImportProps) {
   const [file, setFile] = React.useState<File>();
 
-  console.log("url", url);
-  console.log("title", title);
-  console.log("file", file);
-
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
