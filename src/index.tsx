@@ -23,12 +23,9 @@ if (import.meta.env.DEV) {
 
 axios.interceptors.response.use(
   (response) => {
-    console.log("response in axios.interceptors", JSON.stringify(response));
     return response;
   },
   (error) => {
-    console.log("error in axios.interceptors", error);
-
     const errorResponse = error.response;
     if (errorResponse.status === 400) {
       alert(errorResponse.data?.data);
